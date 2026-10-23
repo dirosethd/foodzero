@@ -1,0 +1,10 @@
+<article class="dish-card">
+  <div class="dish-img" style="background-image:url('<%= item.ImageUrl %>')"></div>
+  <div class="dish-body">
+    <div class="dish-head">
+      <h3><%= item.Name %></h3>
+      <span class="price">$<%= Number(item.Price).toFixed(2) %></span>
+    </div>
+    <p class="muted"><%= item.Description %></p>
+  </div>
+</article>

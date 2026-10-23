@@ -1,0 +1,37 @@
+<%- include('partials/header') %>
+
+<section class="auth">
+  <div class="auth-card card">
+    <h1>Create account</h1>
+    <p class="muted">Join FoodZero in a few seconds</p>
+
+    <a href="/auth/google" class="btn btn-google btn-block">
+      <%- include('partials/google-icon') %> Sign up with Google
+    </a>
+
+    <div class="divider"><span>or with email</span></div>
+
+    <% if (errors.length) { %>
+      <div class="alert"><% errors.forEach(function (e) { %><div><%= e %></div><% }) %></div>
+    <% } %>
+
+    <form method="post" action="/register" class="form">
+      <label>Name
+        <input name="name" required maxlength="100" autocomplete="name" value="<%= form.name || '' %>">
+      </label>
+      <label>Email
+        <input name="email" type="email" required autocomplete="email" value="<%= form.email || '' %>">
+      </label>
+      <label>Password
+        <input name="password" type="password" required minlength="8" autocomplete="new-password">
+      </label>
+      <label>Repeat password
+        <input name="password2" type="password" required minlength="8" autocomplete="new-password">
+      </label>
+      <button class="btn btn-dark btn-block">Sign up</button>
+    </form>
+    <p class="muted small center">Already have an account? <a href="/login">Log in</a></p>
+  </div>
+</section>
+
+<%- include('partials/footer') %>

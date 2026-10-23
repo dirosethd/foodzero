@@ -1,0 +1,51 @@
+<%- include('partials/header') %>
+
+<section class="page-hero">
+  <div class="container">
+    <h1>Book a table</h1>
+    <p>Reserve your table and we'll have it ready for you</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container narrow">
+    <% if (errors.length) { %>
+      <div class="alert"><% errors.forEach(function (e) { %><div><%= e %></div><% }) %></div>
+    <% } %>
+    <form method="post" action="/reservation" class="form card">
+      <div class="form-grid">
+        <label>Name
+          <input name="name" required maxlength="100" value="<%= form.name || (user ? user.Name : '') %>">
+        </label>
+        <label>Email
+          <input name="email" type="email" required value="<%= form.email || (user ? user.Email : '') %>">
+        </label>
+        <label>Phone
+          <input name="phone" type="tel" required value="<%= form.phone || '' %>" placeholder="+7 900 000-00-00">
+        </label>
+        <label>Guests
+          <select name="guests">
+            <% for (let i = 1; i <= 10; i++) { %>
+              <option value="<%= i %>" <%= Number(form.guests || 2) === i ? 'selected' : '' %>><%= i %> <%= i === 1 ? 'person' : 'people' %></option>
+            <% } %>
+          </select>
+        </label>
+        <label>Date
+          <input name="date" type="date" required value="<%= form.date || '' %>">
+        </label>
+        <label>Time
+          <input name="time" type="time" required value="<%= form.time || '19:00' %>">
+        </label>
+      </div>
+      <label>Comment (optional)
+        <textarea name="comment" rows="3" maxlength="500"><%= form.comment || '' %></textarea>
+      </label>
+      <button class="btn btn-dark btn-block">Book now</button>
+      <% if (!user) { %>
+        <p class="muted small center"><a href="/login">Log in</a> to see all your reservations in your account.</p>
+      <% } %>
+    </form>
+  </div>
+</section>
+
+<%- include('partials/footer') %>

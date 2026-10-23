@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title><%= title %></title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rufina:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<header class="site-header <%= path === '/' ? 'is-overlay' : '' %>">
+  <div class="container header-row">
+    <a href="/" class="logo">Food<span>Zero</span></a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Menu">
+    <label for="nav-toggle" class="burger" aria-hidden="true"><span></span></label>
+    <nav class="nav">
+      <a href="/" class="<%= path === '/' ? 'active' : '' %>">Home</a>
+      <a href="/menu" class="<%= path === '/menu' ? 'active' : '' %>">Menu</a>
+      <a href="/about" class="<%= path === '/about' ? 'active' : '' %>">About</a>
+      <a href="/reservation" class="<%= path === '/reservation' ? 'active' : '' %>">Reservation</a>
+      <% if (user) { %>
+        <a href="/profile" class="nav-user">
+          <% if (user.AvatarUrl) { %><img src="<%= user.AvatarUrl %>" alt="" referrerpolicy="no-referrer"><% } %>
+          <%= user.Name %>
+        </a>
+        <form action="/logout" method="post" class="inline"><button class="btn btn-outline btn-sm">Log out</button></form>
+      <% } else { %>
+        <a href="/login" class="btn btn-outline btn-sm">Log in</a>
+      <% } %>
+    </nav>
+  </div>
+</header>
+<% if (flash) { %>
+  <div class="flash flash-<%= flash.type %>"><div class="container"><%= flash.text %></div></div>
+<% } %>
+<main>

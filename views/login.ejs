@@ -1,0 +1,27 @@
+<%- include('partials/header') %>
+
+<section class="auth">
+  <div class="auth-card card">
+    <h1>Welcome back</h1>
+    <p class="muted">Log in to manage your reservations</p>
+
+    <a href="/auth/google" class="btn btn-google btn-block">
+      <%- include('partials/google-icon') %> Continue with Google
+    </a>
+
+    <div class="divider"><span>or with email</span></div>
+
+    <form method="post" action="/login" class="form">
+      <label>Email
+        <input name="email" type="email" required autocomplete="email" value="<%= email %>">
+      </label>
+      <label>Password
+        <input name="password" type="password" required autocomplete="current-password">
+      </label>
+      <button class="btn btn-dark btn-block">Log in</button>
+    </form>
+    <p class="muted small center">No account? <a href="/register">Sign up</a></p>
+  </div>
+</section>
+
+<%- include('partials/footer') %>

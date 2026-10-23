@@ -1,0 +1,87 @@
+<%- include('partials/header') %>
+
+<section class="hero">
+  <div class="container hero-grid">
+    <div class="hero-text">
+      <h1>Healthy Eating is important part of lifestyle</h1>
+      <p>Fresh, seasonal and honest food. We cook every dish from local farm ingredients so you can enjoy flavour without compromise.</p>
+      <div class="hero-actions">
+        <a href="/reservation" class="btn btn-light">Book a table</a>
+        <a href="/menu" class="btn btn-outline">See the menu</a>
+      </div>
+    </div>
+    <div class="hero-img">
+      <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=900&q=80" alt="Healthy bowl">
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container split">
+    <div class="split-img">
+      <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=900&q=80" alt="Restaurant interior">
+    </div>
+    <div>
+      <p class="eyebrow">Our story</p>
+      <h2>Start to plan your diet today</h2>
+      <p class="muted">FoodZero was born from a simple idea: great food should make you feel good. Our chefs work with nutritionists to balance taste and health in every plate.</p>
+      <ul class="facts">
+        <li><strong>20+</strong><span>years of experience</span></li>
+        <li><strong>45</strong><span>seasonal dishes</span></li>
+        <li><strong>12k</strong><span>happy guests</span></li>
+      </ul>
+      <a href="/about" class="btn btn-dark">Read more</a>
+    </div>
+  </div>
+</section>
+
+<section class="section section-cream">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">Chef recommends</p>
+      <h2>Our popular dishes</h2>
+    </div>
+    <div class="dish-grid">
+      <% featured.forEach(function (item) { %>
+        <%- include('partials/dish-card', { item }) %>
+      <% }) %>
+    </div>
+    <div class="center"><a href="/menu" class="btn btn-dark">View full menu</a></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container features">
+    <div class="feature">
+      <div class="feature-icon">🌿</div>
+      <h3>Fresh ingredients</h3>
+      <p class="muted">Delivered every morning from farms around the city.</p>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">👨‍🍳</div>
+      <h3>Expert chefs</h3>
+      <p class="muted">A team with Michelin-restaurant experience.</p>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">🥗</div>
+      <h3>Balanced menu</h3>
+      <p class="muted">Every dish designed together with nutritionists.</p>
+    </div>
+  </div>
+</section>
+
+<section class="quote">
+  <div class="container">
+    <blockquote>“The best salads in town — light, fresh and genuinely filling. FoodZero is our go-to place for weekday lunch.”</blockquote>
+    <p class="quote-author">— Jenny W., regular guest</p>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="container cta-inner">
+    <h2>Want to taste it? Reserve your table now</h2>
+    <a href="/reservation" class="btn btn-light">Book a table</a>
+  </div>
+</section>
+
+<%- include('partials/footer') %>
